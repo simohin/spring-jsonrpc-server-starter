@@ -1,0 +1,17 @@
+ext {
+    jsonrpc4jVersion = '1.5.3'
+    groovyVersion = '3.0.5'
+}
+
+dependencies {
+//    compile project(":spring-esb-rabbitmq-starter")
+    implementation "com.github.briandilley.jsonrpc4j:jsonrpc4j:$jsonrpc4jVersion"
+    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-aop:$springBootVersion"
+    compile "org.codehaus.groovy:groovy:$groovyVersion"
+    compile "org.codehaus.groovy:groovy-json:$groovyVersion"
+}
+
+test {
+    useJUnitPlatform()
+}

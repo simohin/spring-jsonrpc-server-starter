@@ -1,0 +1,74 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    ext {
+        projectVersion = '1.0.0'
+        springBootVersion = '2.3.8.RELEASE'
+        lombokVersion = '1.18.18'
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+    }
+}
+allprojects {
+    group = 'com.github.simohin'
+    version = projectVersion
+
+    repositories {
+        jcenter()
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-starter-parent:$springBootVersion"
+        }
+
+        dependencies {
+            dependency "org.projectlombok:lombok:$lombokVersion"
+        }
+    }
+
+    buildscript {
+        repositories {
+            maven { url 'https://plugins.gradle.org/m2/' }
+        }
+        ext {
+            springBootVersion = springBootVersion
+        }
+    }
+
+    task resolveAllDependencies {
+        doLast {
+            configurations.all { it.resolve() }
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+
+    test {
+        reports {
+            junitXml.enabled = true
+            html.enabled = true
+        }
+    }
+
+    dependencies {
+        compileOnly "org.projectlombok:lombok"
+        annotationProcessor "org.projectlombok:lombok"
+
+        testCompile "org.springframework.boot:spring-boot-starter-test"
+    }
+}
