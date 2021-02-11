@@ -1,6 +1,5 @@
 package com.github.simohin.simpleimpl.api.jsonrpc.pingpong
 
-
 import com.github.simohin.simpleimpl.base.ApplicationContextTest
 import com.github.simohin.simpleimpl.utils.MvcTest
 import org.springframework.beans.factory.annotation.Autowired
