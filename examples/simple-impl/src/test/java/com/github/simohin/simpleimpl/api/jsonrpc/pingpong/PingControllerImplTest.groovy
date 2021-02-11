@@ -17,6 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class PingControllerImplTest extends ApplicationContextTest {
 
     private static final String URI = "/api/v1/jsonrpc/pingpong"
+
     @Autowired
     MockMvc mvc
 
