@@ -1,6 +1,8 @@
 ext {
     jsonrpc4jVersion = '1.5.3'
     groovyVersion = '3.0.5'
+    jaxwsVersion = '2.3.2'
+    spockVersion = '2.0-M3-groovy-3.0'
 }
 
 dependencies {
@@ -8,8 +10,11 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
     implementation "org.springframework.boot:spring-boot-starter-aop:$springBootVersion"
     implementation "com.github.briandilley.jsonrpc4j:jsonrpc4j:$jsonrpc4jVersion"
+    compile "com.sun.xml.ws:jaxws-ri:$jaxwsVersion"
     compile "org.codehaus.groovy:groovy:$groovyVersion"
     compile "org.codehaus.groovy:groovy-json:$groovyVersion"
+
+    testCompile "org.spockframework:spock-spring:$spockVersion"
 }
 
 test {

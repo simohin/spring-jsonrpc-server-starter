@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.codehaus.groovy.control.CompilerConfiguration;
-import org.codehaus.groovy.control.ConfigurationException;
 import org.springframework.util.ResourceUtils;
 
 import groovy.lang.Binding;
